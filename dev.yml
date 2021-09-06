@@ -2,6 +2,7 @@ version: "3"
 
 services:
   dev:
+    container-name: dev
     build:
       context: '.'
       dockerfile: 'dev.dockerfile'

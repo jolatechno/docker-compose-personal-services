@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 
+ARG DEBIAN_FRONTEND=noninteractive # disable install questions
 ARG SSH_USER=test
 ARG SSH_PASWD=test
 ARG LIBS=
