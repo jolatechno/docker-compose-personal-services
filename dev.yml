@@ -2,7 +2,7 @@ version: "3"
 
 services:
   dev:
-    container-name: dev
+    container_name: dev
     build:
       context: '.'
       dockerfile: 'dev.dockerfile'
@@ -12,7 +12,7 @@ services:
         - SSH_USER=${SSH_USER}
     ports:
       - "${SSH_PORT}:22"
-      - "81:80"
+      - "8081:80"
     volumes:
       - ../dev:/home/ubuntu
     restart: unless-stopped

@@ -15,8 +15,8 @@ services:
       PIHOLE_DNS_ : 9.9.9.9
       WEBPASSWORD : '${PIHOLE_PASWD}'
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - '../etc-pihole/:/etc/pihole/'
+      - '../etc-dnsmasq.d/:/etc/dnsmasq.d/'
     dns:
       - 127.0.0.1
       - 9.9.9.9
