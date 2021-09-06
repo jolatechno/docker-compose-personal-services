@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  dev:
+    build:
+      context: '.'
+      dockerfile: 'dev.dockerfile'
+      args:
+        - LIBS=${LIBS}
+        - SSH_PASWD=${SSH_PASWD}
+        - SSH_USER=${SSH_USER}
+    ports:
+      - "${SSH_PORT}:22"
+      - "81:80"
+    volumes:
+      - ../dev:/home/ubuntu
+    restart: unless-stopped

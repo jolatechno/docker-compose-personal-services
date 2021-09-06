@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  samba:
+    container_name: samba
+    image: dperson/samba
+    environment:
+      TZ: '${TIMEZONE}'
+    cap_add:
+      - CAP_SYS_ADMIN
+    networks:
+      - default
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    volumes:
+      - '/mnt:/hhd' # will find a way to mount device at container startup
+      - '../samba:/ssd'
+    command: '-s "ssd;/ssd;yes;no;no;all;all;all" -s "hhd;/hhd;yes;no;no;all;all;all" -u "${SMB_USER};${SMB_PASWD}"'
